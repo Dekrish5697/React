@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
-function Timer() {
-    const [seconds, setSeconds] = useState(0);
+function App() {
+    const [count, setCount] = useState(0);
     useEffect(() => {
-        const timer = setInterval(() => {
-            setSeconds(prev => prev + 1);
-        }, 3000);
-        return () => clearInterval(timer); // Cleanup on unmount
-    }, []);
-    return <div>Seconds: {seconds}</div>;
+        console.log("Count updated to ${count}");
+    }, [count]); // Runs only when count changes
+    return <button onClick={() => setCount(count +
+        1)}>Increment</button>;
 }
 
-export default Timer;
+export default App;
